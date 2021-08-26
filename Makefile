@@ -14,6 +14,6 @@ attach-worker:
 	docker exec -i -t gnps_datasetcache_gnps-datasetcache-worker_1  /bin/bash
 
 create_db:
-	# sed -i '1 i\scan\tpeptide\tcharge\tfileidx' data/all_massive_search_psms.tsv
-	# python data/convert_tsv_to_sqlite.py database -out:peptide,scan data/all_massive_search_psms_with_headers.tsv
-	python data/convert_tsv_to_sqlite.py database -out:peptide,scan data/all_massive_search_psms_small.tsv
+	# python ./bin/merge_psms_files.py ./data/all_massive_search_psms.tsv ./data/all_massive_search_files.tsv ./data/merged_psms.tsv
+	# python data/convert_tsv_to_sqlite.py database -out:peptide,scan ./data/merged_psms.tsv
+	python ./bin/convert_tsv_to_sqlite.py database -out:peptide,scan ./data/merged_psms_small.tsv
