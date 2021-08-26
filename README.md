@@ -1,0 +1,1 @@
+Run simple service to query for data in massive search.
